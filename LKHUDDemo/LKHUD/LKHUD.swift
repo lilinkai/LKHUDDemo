@@ -25,7 +25,7 @@ enum HUDAnimationStyle:HUDViewAnimationFactory {
     func showAnimation() {
         switch self {
             case .fade:
-                showUpDownAnimationStyle()
+                showFadeAnimationStyle()
                 DispatchQueue.main.asyncAfter(deadline: .now() + 1.0, execute: { 
                     LKHUD.hideHUD()
                 })
@@ -36,14 +36,14 @@ enum HUDAnimationStyle:HUDViewAnimationFactory {
     func hideAnimation(completed:@escaping () -> ()) {
         switch self {
         case .fade: 
-            hideUpDownAnimationStyle {
+            hideFadeAnimationStyle {
                 completed()
             }
             break
         }
     }
     
-    private func showUpDownAnimationStyle(){
+    private func showFadeAnimationStyle(){
         print("执行了渐隐显示动画")
         LKHUD.presentedHudStyleView?.alpha = 0
         UIView.animate(withDuration: 0.5) { 
@@ -51,7 +51,7 @@ enum HUDAnimationStyle:HUDViewAnimationFactory {
         }
     }
     
-    private func hideUpDownAnimationStyle(completed:@escaping () -> ()){
+    private func hideFadeAnimationStyle(completed:@escaping () -> ()){
         print("执行了渐隐隐藏动画")
         UIView.animate(withDuration: 0.5, animations: { 
             LKHUD.presentedHudStyleView?.alpha = 0
