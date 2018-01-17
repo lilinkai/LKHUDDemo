@@ -23,7 +23,7 @@ class ViewController: UIViewController {
 
     @IBAction func showHUDAction(_ sender: UIButton) {
         
-        LKHUD.showHUD(HUDStyle: .promptStyle("这是一个提示信息"), animationStyle: .fade)
+        LKHUD.showHUD(HUDStyle: .promptStyle("这是一个提示信息"), animationStyle: .upDown)
         
     }
 }

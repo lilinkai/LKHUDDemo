@@ -21,6 +21,7 @@ protocol HUDViewAnimationFactory {
 enum HUDAnimationStyle:HUDViewAnimationFactory {
    
     case fade
+    case upDown
    
     func showAnimation() {
         switch self {
@@ -29,6 +30,14 @@ enum HUDAnimationStyle:HUDViewAnimationFactory {
                 DispatchQueue.main.asyncAfter(deadline: .now() + 1.0, execute: { 
                     LKHUD.hideHUD()
                 })
+            break
+            
+        case .upDown:
+            showUpDownAnimationStyle()
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1.0, execute: { 
+                LKHUD.hideHUD()
+            })
+            print("从上到下掉落动画")
             break
         }
     }
@@ -39,6 +48,10 @@ enum HUDAnimationStyle:HUDViewAnimationFactory {
             hideFadeAnimationStyle {
                 completed()
             }
+            break
+        case .upDown:
+            completed()
+            print("从上到下掉落动画")
             break
         }
     }
@@ -57,6 +70,22 @@ enum HUDAnimationStyle:HUDViewAnimationFactory {
             LKHUD.presentedHudStyleView?.alpha = 0
         }) { (c) in
             completed()
+        }
+    }
+        
+    private func showUpDownAnimationStyle(){
+        
+        let hudShowView = LKHUD.presentedHudStyleView!
+        let screenHeight = UIScreen.main.bounds.height
+
+        hudShowView.center = CGPoint(x: hudShowView.center.x, y:-hudShowView.frame.height)
+        hudShowView.transform = CGAffineTransform(rotationAngle: -.pi/10)
+        
+        UIView.animate(withDuration: 1, delay: 0, usingSpringWithDamping: 0.4, initialSpringVelocity: 0.3, options: UIViewAnimationOptions(rawValue: 0), animations: { 
+            LKHUD.presentedHudStyleView?.center = CGPoint(x: hudShowView.center.x, y:screenHeight/2)
+            hudShowView.transform = .identity
+        }) { (completed) in
+            
         }
     }
 }
