@@ -20,11 +20,11 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
-
     @IBAction func showHUDAction(_ sender: UIButton) {
-        
-        LKHUD.showHUD(HUDStyle: .promptStyle("这是一个提示信息"), animationStyle: .upDown)
-        
+        LKHUD.showHUD(HUDStyle: .alert("兑换成功", "恭喜您获得N个金币", { 
+            print("点击事件执行了")
+            LKHUD.hideHUD()
+        }), animationStyle: .upDown)
     }
 }
 

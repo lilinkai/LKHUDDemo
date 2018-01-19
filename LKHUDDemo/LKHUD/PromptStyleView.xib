@@ -51,7 +51,7 @@
             <connections>
                 <outlet property="titleLabel" destination="qas-pi-n8w" id="QOE-UA-Yk2"/>
             </connections>
-            <point key="canvasLocation" x="-341" y="-172"/>
+            <point key="canvasLocation" x="-43" y="-100"/>
         </view>
     </objects>
 </document>

@@ -34,10 +34,6 @@ enum HUDAnimationStyle:HUDViewAnimationFactory {
             
         case .upDown:
             showUpDownAnimationStyle()
-            DispatchQueue.main.asyncAfter(deadline: .now() + 1.0, execute: { 
-                LKHUD.hideHUD()
-            })
-            print("从上到下掉落动画")
             break
         }
     }
@@ -49,15 +45,16 @@ enum HUDAnimationStyle:HUDViewAnimationFactory {
                 completed()
             }
             break
-        case .upDown:
-            completed()
-            print("从上到下掉落动画")
+        case .upDown:     
+            hideUpDownAnimationStyle {
+                 completed()
+            }
             break
         }
     }
     
+//------------------------------------渐隐动画---------------------------------------------------
     private func showFadeAnimationStyle(){
-        print("执行了渐隐显示动画")
         LKHUD.presentedHudStyleView?.alpha = 0
         UIView.animate(withDuration: 0.5) { 
             LKHUD.presentedHudStyleView?.alpha = 1
@@ -65,14 +62,16 @@ enum HUDAnimationStyle:HUDViewAnimationFactory {
     }
     
     private func hideFadeAnimationStyle(completed:@escaping () -> ()){
-        print("执行了渐隐隐藏动画")
-        UIView.animate(withDuration: 0.5, animations: { 
+        UIView.animate(withDuration: 0.3, animations: { 
             LKHUD.presentedHudStyleView?.alpha = 0
         }) { (c) in
             completed()
         }
     }
-        
+//------------------------------------渐隐动画---------------------------------------------------
+    
+    
+//------------------------------------从上落下---------------------------------------------------
     private func showUpDownAnimationStyle(){
         
         let hudShowView = LKHUD.presentedHudStyleView!
@@ -81,28 +80,51 @@ enum HUDAnimationStyle:HUDViewAnimationFactory {
         hudShowView.center = CGPoint(x: hudShowView.center.x, y:-hudShowView.frame.height)
         hudShowView.transform = CGAffineTransform(rotationAngle: -.pi/10)
         
-        UIView.animate(withDuration: 1, delay: 0, usingSpringWithDamping: 0.4, initialSpringVelocity: 0.3, options: UIViewAnimationOptions(rawValue: 0), animations: { 
+        UIView.animate(withDuration: 1, delay: 0, usingSpringWithDamping: 0.4, initialSpringVelocity: 0, options: UIViewAnimationOptions(rawValue: 0), animations: { 
             LKHUD.presentedHudStyleView?.center = CGPoint(x: hudShowView.center.x, y:screenHeight/2)
             hudShowView.transform = .identity
         }) { (completed) in
             
         }
     }
+    
+    private func hideUpDownAnimationStyle(completed:@escaping () -> ()){
+        
+        let hudShowView = LKHUD.presentedHudStyleView!
+        let screenHeight = UIScreen.main.bounds.height
+       
+        UIView.animate(withDuration: 0.3, animations: { 
+            LKHUD.presentedHudStyleView?.center = CGPoint(x: hudShowView.center.x, y:screenHeight+hudShowView.frame.height)
+            hudShowView.transform = CGAffineTransform(rotationAngle: -.pi/10)
+        }) { (c) in
+            completed() 
+        }
+    }
+//------------------------------------从上落下---------------------------------------------------
+
 }
 
 enum HUDStyle:HUDViewFactory {
     
-    case promptStyle(String)  //提示信息样式
-    
+    case prompt(String)  //提示信息样式
+    case alert(String,String,()->())  //提示信息样式(带确定按钮)
+    case option(String,String,String,()->(),String,()->())  //带有取消确认选项样式
+
     func createHUDView() -> UIView {
         switch self {
-            case .promptStyle(let title): 
-                //提示信息
+            //提示信息
+            case .prompt(let title): 
                 let promptStyleView = Bundle.main.loadNibNamed("PromptStyleView", owner: nil, options: nil)?.last as! PromptStyleView
-                
                 promptStyleView.configTitle(title: title)
-               
                 return promptStyleView
+            
+            //警告提示信息
+        case .alert(let title, let desc, let handle): 
+                let alertConfirmView = Bundle.main.loadNibNamed("AlertConfirmView", owner: nil, options: nil)?.last as! AlertConfirmView
+                alertConfirmView.configAlertConfirm(titleStr: title, descStr: desc, handle: handle)
+                return alertConfirmView
+        case .option(_, _, _, _, _, _):
+            return UIView()
         }
     }
 }

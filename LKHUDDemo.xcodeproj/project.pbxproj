@@ -16,10 +16,11 @@
 		A90E74B22009987C00FA5BEB /* LKHUDDemoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A90E74B12009987C00FA5BEB /* LKHUDDemoUITests.swift */; };
 		A90E74C2200998DD00FA5BEB /* LKHUD.swift in Sources */ = {isa = PBXBuildFile; fileRef = A90E74C1200998DD00FA5BEB /* LKHUD.swift */; };
 		A90E74C420099A6700FA5BEB /* LKHUDVC.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A90E74C320099A6700FA5BEB /* LKHUDVC.storyboard */; };
+		A91A13A820118E9100A8BA39 /* AlertConfirmView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91A13A720118E9100A8BA39 /* AlertConfirmView.swift */; };
+		A91A13AA20118EA300A8BA39 /* AlertConfirmView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A91A13A920118EA300A8BA39 /* AlertConfirmView.xib */; };
 		A9E83FA620099F9E0001FECF /* LKHUDVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E83FA520099F9E0001FECF /* LKHUDVC.swift */; };
 		A9E83FA82009F28F0001FECF /* PromptStyleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E83FA72009F28F0001FECF /* PromptStyleView.swift */; };
 		A9E83FAA2009F29A0001FECF /* PromptStyleView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9E83FA92009F29A0001FECF /* PromptStyleView.xib */; };
-		A9E83FAC200A071E0001FECF /* a.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = A9E83FAB200A071E0001FECF /* a.jpeg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,10 +56,11 @@
 		A90E74B32009987C00FA5BEB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A90E74C1200998DD00FA5BEB /* LKHUD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LKHUD.swift; sourceTree = "<group>"; };
 		A90E74C320099A6700FA5BEB /* LKHUDVC.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LKHUDVC.storyboard; sourceTree = "<group>"; };
+		A91A13A720118E9100A8BA39 /* AlertConfirmView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertConfirmView.swift; sourceTree = "<group>"; };
+		A91A13A920118EA300A8BA39 /* AlertConfirmView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AlertConfirmView.xib; sourceTree = "<group>"; };
 		A9E83FA520099F9E0001FECF /* LKHUDVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LKHUDVC.swift; sourceTree = "<group>"; };
 		A9E83FA72009F28F0001FECF /* PromptStyleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromptStyleView.swift; sourceTree = "<group>"; };
 		A9E83FA92009F29A0001FECF /* PromptStyleView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PromptStyleView.xib; sourceTree = "<group>"; };
-		A9E83FAB200A071E0001FECF /* a.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = a.jpeg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -143,10 +145,11 @@
 			children = (
 				A90E74C1200998DD00FA5BEB /* LKHUD.swift */,
 				A9E83FA520099F9E0001FECF /* LKHUDVC.swift */,
-				A9E83FAB200A071E0001FECF /* a.jpeg */,
 				A90E74C320099A6700FA5BEB /* LKHUDVC.storyboard */,
 				A9E83FA72009F28F0001FECF /* PromptStyleView.swift */,
 				A9E83FA92009F29A0001FECF /* PromptStyleView.xib */,
+				A91A13A720118E9100A8BA39 /* AlertConfirmView.swift */,
+				A91A13A920118EA300A8BA39 /* AlertConfirmView.xib */,
 			);
 			path = LKHUD;
 			sourceTree = "<group>";
@@ -259,10 +262,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				A90E749C2009987C00FA5BEB /* LaunchScreen.storyboard in Resources */,
-				A9E83FAC200A071E0001FECF /* a.jpeg in Resources */,
 				A90E74992009987C00FA5BEB /* Assets.xcassets in Resources */,
 				A90E74C420099A6700FA5BEB /* LKHUDVC.storyboard in Resources */,
 				A9E83FAA2009F29A0001FECF /* PromptStyleView.xib in Resources */,
+				A91A13AA20118EA300A8BA39 /* AlertConfirmView.xib in Resources */,
 				A90E74972009987C00FA5BEB /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -288,6 +291,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A91A13A820118E9100A8BA39 /* AlertConfirmView.swift in Sources */,
 				A90E74942009987C00FA5BEB /* ViewController.swift in Sources */,
 				A9E83FA620099F9E0001FECF /* LKHUDVC.swift in Sources */,
 				A90E74922009987C00FA5BEB /* AppDelegate.swift in Sources */,
@@ -459,7 +463,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 2U8N48B5C5;
 				INFOPLIST_FILE = LKHUDDemo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = lilinkai.LKHUDDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -473,7 +479,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 2U8N48B5C5;
 				INFOPLIST_FILE = LKHUDDemo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = lilinkai.LKHUDDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
