@@ -21,10 +21,16 @@ class ViewController: UIViewController {
     }
 
     @IBAction func showHUDAction(_ sender: UIButton) {
+        LKHUD.showHUD(HUDStyle: .prompt("这是一个提示信息"), animationStyle: .upDown)
+
+    }
+    
+    @IBAction func showAlertHudAction(_ sender: UIButton) {
         LKHUD.showHUD(HUDStyle: .alert("兑换成功", "恭喜您获得N个金币", { 
             print("点击事件执行了")
             LKHUD.hideHUD()
         }), animationStyle: .upDown)
     }
+    
 }
 

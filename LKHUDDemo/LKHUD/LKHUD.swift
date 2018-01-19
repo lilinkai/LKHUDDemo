@@ -11,6 +11,7 @@ import UIKit
 
 protocol HUDViewFactory {
     func createHUDView() -> UIView
+    func configAutoAnimation()
 }
 
 protocol HUDViewAnimationFactory {
@@ -27,9 +28,6 @@ enum HUDAnimationStyle:HUDViewAnimationFactory {
         switch self {
             case .fade:
                 showFadeAnimationStyle()
-                DispatchQueue.main.asyncAfter(deadline: .now() + 1.0, execute: { 
-                    LKHUD.hideHUD()
-                })
             break
             
         case .upDown:
@@ -105,7 +103,7 @@ enum HUDAnimationStyle:HUDViewAnimationFactory {
 }
 
 enum HUDStyle:HUDViewFactory {
-    
+
     case prompt(String)  //提示信息样式
     case alert(String,String,()->())  //提示信息样式(带确定按钮)
     case option(String,String,String,()->(),String,()->())  //带有取消确认选项样式
@@ -127,6 +125,24 @@ enum HUDStyle:HUDViewFactory {
             return UIView()
         }
     }
+    
+    func configAutoAnimation() {
+        switch self {
+        //提示信息
+        case .prompt( _):
+            
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1.0, execute: { 
+                LKHUD.hideHUD()
+            })
+            
+            break
+        case .alert(_, _, _):
+            break
+        case .option(_, _, _, _, _, _):
+            break
+        }
+    }
+    
 }
 
 class LKHUD {
@@ -140,7 +156,7 @@ class LKHUD {
         let hud = UIStoryboard(name: "LKHUDVC", bundle: nil).instantiateViewController(withIdentifier: "LKHUDVC")
         return hud as! LKHUDVC
     }
-    
+  
     static private weak var presentedVC:LKHUDVC?
     static private var currentAnimationStyle:HUDAnimationStyle?
     static weak var presentedHudStyleView:UIView?
@@ -165,8 +181,9 @@ class LKHUD {
             
             presentedVC = hudVC
             currentAnimationStyle = animationStyle
+            
+            HUDStyle.configAutoAnimation()
         }
-    
     }
     
     static func hideHUD(){

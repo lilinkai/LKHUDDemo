@@ -19,22 +19,37 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FtT-2s-HXc">
-                                <rect key="frame" x="116.5" y="40" width="142" height="30"/>
+                                <rect key="frame" x="56" y="40" width="263" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="4u4-bP-nti"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="23"/>
-                                <state key="normal" title="点击弹出HUD">
+                                <state key="normal" title="点击弹出提示信息⚠️HUD">
                                     <color key="titleColor" red="1" green="0.028078071964938167" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </state>
                                 <connections>
                                     <action selector="showHUDAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="eHi-F0-luf"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="62L-oX-QR6">
+                                <rect key="frame" x="69.5" y="80" width="236" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="cm2-kU-YHd"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                                <state key="normal" title="点击弹出提示选项HUD">
+                                    <color key="titleColor" red="1" green="0.028078071959999999" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                </state>
+                                <connections>
+                                    <action selector="showAlertHudAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="5Ku-Fx-kML"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="62L-oX-QR6" firstAttribute="top" secondItem="FtT-2s-HXc" secondAttribute="bottom" constant="10" id="Aob-dX-86R"/>
                             <constraint firstItem="FtT-2s-HXc" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="aeP-Kk-EPd"/>
+                            <constraint firstItem="62L-oX-QR6" firstAttribute="centerX" secondItem="FtT-2s-HXc" secondAttribute="centerX" id="ihP-Xh-hen"/>
                             <constraint firstItem="FtT-2s-HXc" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="jGk-7c-dz3"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -42,7 +57,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="117.59999999999999" y="118.29085457271366"/>
+            <point key="canvasLocation" x="-738" y="33"/>
         </scene>
     </scenes>
 </document>

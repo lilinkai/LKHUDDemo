@@ -16,14 +16,6 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="50"/>
             <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
             <subviews>
-                <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7vY-cQ-7bS">
-                    <rect key="frame" x="0.0" y="0.0" width="320" height="50"/>
-                    <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="aWi-lS-GQA">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="50"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                    </view>
-                    <blurEffect style="light"/>
-                </visualEffectView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="11111111111" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qas-pi-n8w">
                     <rect key="frame" x="10" y="10" width="300" height="30"/>
                     <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
@@ -31,14 +23,11 @@
                     <nil key="highlightedColor"/>
                 </label>
             </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
                 <constraint firstItem="qas-pi-n8w" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="10" id="HLx-1s-O2P"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="qas-pi-n8w" secondAttribute="bottom" constant="10" id="NW2-jj-bbw"/>
-                <constraint firstItem="7vY-cQ-7bS" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="Ra6-n8-rkd"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="7vY-cQ-7bS" secondAttribute="trailing" id="Wh9-93-cUa"/>
-                <constraint firstItem="7vY-cQ-7bS" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="deR-ng-ekO"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="qas-pi-n8w" secondAttribute="trailing" constant="10" id="lHK-Sf-fqz"/>
-                <constraint firstAttribute="bottom" secondItem="7vY-cQ-7bS" secondAttribute="bottom" id="pE9-pD-6z6"/>
                 <constraint firstItem="qas-pi-n8w" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="10" id="uow-pq-eUK"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
