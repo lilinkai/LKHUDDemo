@@ -32,5 +32,14 @@ class ViewController: UIViewController {
         }), animationStyle: .upDown)
     }
     
+    @IBAction func showOptionAlertView(_ sender: UIButton) {
+        LKHUD.showHUD(HUDStyle: .option("抓取成功", UIView(), "取消", { 
+            LKHUD.hideHUD()
+        }, "确定", { 
+            LKHUD.hideHUD()
+        }), animationStyle: .upDown)
+    }
+    
+    
 }
 

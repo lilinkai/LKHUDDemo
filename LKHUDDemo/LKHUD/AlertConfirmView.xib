@@ -69,7 +69,7 @@
                 <outlet property="desc" destination="XMh-QK-Yg2" id="n6w-FX-oTA"/>
                 <outlet property="title" destination="sae-S8-2vM" id="Zt5-33-zls"/>
             </connections>
-            <point key="canvasLocation" x="-73" y="-265"/>
+            <point key="canvasLocation" x="-185" y="-340"/>
         </view>
     </objects>
 </document>

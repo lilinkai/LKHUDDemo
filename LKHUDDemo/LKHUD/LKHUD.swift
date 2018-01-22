@@ -106,23 +106,25 @@ enum HUDStyle:HUDViewFactory {
 
     case prompt(String)  //提示信息样式
     case alert(String,String,()->())  //提示信息样式(带确定按钮)
-    case option(String,String,String,()->(),String,()->())  //带有取消确认选项样式
+    case option(String,Any,String,()->(),String,()->())  //带有取消确认选项样式
 
     func createHUDView() -> UIView {
         switch self {
-            //提示信息
-            case .prompt(let title): 
-                let promptStyleView = Bundle.main.loadNibNamed("PromptStyleView", owner: nil, options: nil)?.last as! PromptStyleView
-                promptStyleView.configTitle(title: title)
-                return promptStyleView
-            
-            //警告提示信息
+        //提示信息
+        case .prompt(let title): 
+            let promptStyleView = Bundle.main.loadNibNamed("PromptStyleView", owner: nil, options: nil)?.last as! PromptStyleView
+            promptStyleView.configTitle(title: title)
+            return promptStyleView
+        //警告提示信息
         case .alert(let title, let desc, let handle): 
-                let alertConfirmView = Bundle.main.loadNibNamed("AlertConfirmView", owner: nil, options: nil)?.last as! AlertConfirmView
-                alertConfirmView.configAlertConfirm(titleStr: title, descStr: desc, handle: handle)
-                return alertConfirmView
-        case .option(_, _, _, _, _, _):
-            return UIView()
+            let alertConfirmView = Bundle.main.loadNibNamed("AlertConfirmView", owner: nil, options: nil)?.last as! AlertConfirmView
+            alertConfirmView.configAlertConfirm(titleStr: title, descStr: desc, handle: handle)
+            return alertConfirmView
+        //带有取消确认的提示框    
+        case .option(let title, let descObj, let leftBtnTitle, let leftHandle, let rightBtnTitle, let rightHandle):
+            let optionAlertView = Bundle.main.loadNibNamed("OptionAlertView", owner: nil, options: nil)?.last as! OptionAlertView
+            optionAlertView.configOptionAlert(titleStr: title, contentObj: descObj, leftBtnTitle: leftBtnTitle, leftHandle: leftHandle, rightBtnTitle: rightBtnTitle, rightHandle: rightHandle)
+            return optionAlertView
         }
     }
     
